@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>My Phaser Game</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/phaser/3.55.2/phaser.min.js'></script>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <script src='src/game.js'></script>
+  <script src='src/mainScene.js'></script>
+  <script src='scenes/uiScene.js'></script>
+  <script>
+    var config = {
+      type: Phaser.AUTO,
+      width: 800,
+      height: 600,
+      scene: [MainScene, UiScene]
+    };
+    var game = new Phaser.Game(config);
+    window.onload = function() {
+      // start the game
+      game.scene.start('MainScene');
+    }
+  </script>
+</body>
+</html>
