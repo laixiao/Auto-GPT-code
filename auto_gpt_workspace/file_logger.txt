@@ -3942,3 +3942,5 @@ append: file_logger.txt
 append: file_logger.txt
 append: file_logger.txt
 append: file_logger.txt
+write: t6/result.py
+write: t6/result.txt

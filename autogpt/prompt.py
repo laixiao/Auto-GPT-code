@@ -7,6 +7,10 @@ from autogpt.config import Config
 from autogpt.setup import prompt_user
 from autogpt.utils import clean_input
 
+# 谷歌翻译
+from googletrans import Translator
+translator = Translator()
+
 CFG = Config()
 
 
@@ -168,6 +172,8 @@ def construct_prompt() -> str:
         logger.typewriter_log("Name :", Fore.GREEN, config.ai_name)
         logger.typewriter_log("Role :", Fore.GREEN, config.ai_role)
         logger.typewriter_log("Goals:", Fore.GREEN, f"{config.ai_goals}")
+        logger.typewriter_log("Goals翻译为英文:", Fore.GREEN, translator.translate(config.ai_role, dest='en').text)
+        
     elif config.ai_name:
         logger.typewriter_log(
             "Welcome back! ",
@@ -177,9 +183,9 @@ def construct_prompt() -> str:
         )
         should_continue = clean_input(
             f"""Continue with the last settings?
-Name:  {config.ai_name}
-Role:  {config.ai_role}
-Goals: {config.ai_goals}
+Name:  {translator.translate(config.ai_name, dest='en').text }
+Role:  {translator.translate(config.ai_role, dest='en').text }
+Goals: {config.ai_goals }
 Continue (y/n): """
         )
         if should_continue.lower() == "n":
