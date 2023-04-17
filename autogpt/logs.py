@@ -5,8 +5,8 @@ import os
 import random
 import re
 import time
-from logging import LogRecord
 import traceback
+from logging import LogRecord
 
 # 谷歌翻译
 from googletrans import Translator
@@ -14,8 +14,8 @@ translator = Translator()
 
 from colorama import Fore, Style
 
-from autogpt.speech import say_text
 from autogpt.config import Config, Singleton
+from autogpt.speech import say_text
 
 CFG = Config()
 
@@ -51,7 +51,7 @@ class Logger(metaclass=Singleton):
 
         # Info handler in activity.log
         self.file_handler = logging.FileHandler(
-            os.path.join(log_dir, log_file), 'a', 'utf-8'
+            os.path.join(log_dir, log_file), "a", "utf-8"
         )
         self.file_handler.setLevel(logging.DEBUG)
         info_formatter = AutoGptFormatter(
@@ -61,7 +61,7 @@ class Logger(metaclass=Singleton):
 
         # Error handler error.log
         error_handler = logging.FileHandler(
-            os.path.join(log_dir, error_file), 'a', 'utf-8'
+            os.path.join(log_dir, error_file), "a", "utf-8"
         )
         error_handler.setLevel(logging.ERROR)
         error_formatter = AutoGptFormatter(
@@ -83,7 +83,7 @@ class Logger(metaclass=Singleton):
         self.logger.setLevel(logging.DEBUG)
 
     def typewriter_log(
-            self, title="", title_color="", content="", speak_text=False, level=logging.INFO
+        self, title="", title_color="", content="", speak_text=False, level=logging.INFO
     ):
         if speak_text and CFG.speak_mode:
             say_text(f"{title}. {content}")
@@ -99,18 +99,18 @@ class Logger(metaclass=Singleton):
         )
 
     def debug(
-            self,
-            message,
-            title="",
-            title_color="",
+        self,
+        message,
+        title="",
+        title_color="",
     ):
         self._log(title, title_color, message, logging.DEBUG)
 
     def warn(
-            self,
-            message,
-            title="",
-            title_color="",
+        self,
+        message,
+        title="",
+        title_color="",
     ):
         self._log(title, title_color, message, logging.WARN)
 
@@ -184,10 +184,10 @@ class AutoGptFormatter(logging.Formatter):
     def format(self, record: LogRecord) -> str:
         if hasattr(record, "color"):
             record.title_color = (
-                    getattr(record, "color")
-                    + getattr(record, "title")
-                    + " "
-                    + Style.RESET_ALL
+                getattr(record, "color")
+                + getattr(record, "title")
+                + " "
+                + Style.RESET_ALL
             )
         else:
             record.title_color = getattr(record, "title")
@@ -298,7 +298,9 @@ def print_assistant_thoughts(ai_name, assistant_reply):
         logger.error("Error: \n", call_stack)
 
 
-def print_assistant_thoughts(ai_name: object, assistant_reply_json_valid: object) -> None:
+def print_assistant_thoughts(
+    ai_name: object, assistant_reply_json_valid: object
+) -> None:
     assistant_thoughts_reasoning = None
     assistant_thoughts_plan = None
     assistant_thoughts_speak = None
