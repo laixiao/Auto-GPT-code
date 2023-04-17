@@ -8,6 +8,9 @@ import os
 from typing import Type
 import yaml
 
+# 谷歌翻译
+from googletrans import Translator
+translator = Translator()
 
 class AIConfig:
     """
@@ -114,7 +117,8 @@ class AIConfig:
             f"You are {self.ai_name}, {self.ai_role}\n{prompt_start}\n\nGOALS:\n\n"
         )
         for i, goal in enumerate(self.ai_goals):
-            full_prompt += f"{i+1}. {goal}\n"
+            full_prompt += f"{i+1}. {translator.translate(goal, dest='en').text}\n"
+            
 
         full_prompt += f"\n\n{get_prompt()}"
         return full_prompt

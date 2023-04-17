@@ -19,6 +19,8 @@ selenium
 webdriver-manager
 jsonschema
 tweepy
+translate
+googletrans
 
 ##Dev
 coverage

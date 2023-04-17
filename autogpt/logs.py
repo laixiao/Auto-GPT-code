@@ -8,6 +8,10 @@ import time
 from logging import LogRecord
 import traceback
 
+# 谷歌翻译
+from googletrans import Translator
+translator = Translator()
+
 from colorama import Fore, Style
 
 from autogpt.speech import say_text
@@ -308,10 +312,10 @@ def print_assistant_thoughts(ai_name: object, assistant_reply_json_valid: object
         assistant_thoughts_criticism = assistant_thoughts.get("criticism")
         assistant_thoughts_speak = assistant_thoughts.get("speak")
     logger.typewriter_log(
-        f"{ai_name.upper()} THOUGHTS:", Fore.YELLOW, f"{assistant_thoughts_text}"
+        f"{ai_name.upper()} THOUGHTS:", Fore.YELLOW, f"{translator.translate(assistant_thoughts_text, dest='zh-CN').text}"
     )
     logger.typewriter_log(
-        "REASONING:", Fore.YELLOW, f"{assistant_thoughts_reasoning}"
+        "REASONING:", Fore.YELLOW, f"{translator.translate(assistant_thoughts_reasoning, dest='zh-CN').text}"
     )
     if assistant_thoughts_plan:
         logger.typewriter_log("PLAN:", Fore.YELLOW, "")
@@ -325,9 +329,9 @@ def print_assistant_thoughts(ai_name: object, assistant_reply_json_valid: object
         lines = assistant_thoughts_plan.split("\n")
         for line in lines:
             line = line.lstrip("- ")
-            logger.typewriter_log("- ", Fore.GREEN, line.strip())
+            logger.typewriter_log("- ", Fore.GREEN, translator.translate(line.strip(), dest='zh-CN').text)
     logger.typewriter_log(
-        "CRITICISM:", Fore.YELLOW, f"{assistant_thoughts_criticism}"
+        "CRITICISM:", Fore.YELLOW, f"{translator.translate(assistant_thoughts_criticism, dest='zh-CN').text}"
     )
     # Speak the assistant's thoughts
     if CFG.speak_mode and assistant_thoughts_speak:

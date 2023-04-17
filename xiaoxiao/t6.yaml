@@ -1,0 +1,14 @@
+ai_goals:
+- 1+1等于多少？
+- 保存结果到t6文件夹中
+- 达到目标就关机结束任务
+ai_name: 数学家
+ai_role: 算术员
+
+
+# ai_goals:
+# - 1+1=?
+# - Save the result to the t6 folder
+# - shutdown upon achieving your goal
+# ai_name: Searcher
+# ai_role: Net Searcher.
