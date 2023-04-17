@@ -1,0 +1,5 @@
+这个文件放到autogpt文件里面logs.py
+这个放到根目录requirements.txt
+然后重新运行一下pip install -r requirements.txt
+pip install googletrans
+pip install 'googletrans==4.0.0rc1'
