@@ -23,7 +23,7 @@ AI_SETTINGS_FILE=ai_settings.yaml
 # OPENAI_API_KEY - OpenAI API Key (Example: my-openai-api-key)
 # TEMPERATURE - Sets temperature in OpenAI (Default: 1)
 # USE_AZURE - Use Azure OpenAI or not (Default: False)
-OPENAI_API_KEY=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
+OPENAI_API_KEY=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
 TEMPERATURE=0
 USE_AZURE=False
 
