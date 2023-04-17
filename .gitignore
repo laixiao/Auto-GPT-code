@@ -3,12 +3,12 @@ autogpt/keys.py
 autogpt/*json
 autogpt/node_modules/
 autogpt/__pycache__/keys.cpython-310.pyc
+autogpt/auto_gpt_workspace
 package-lock.json
 *.pyc
 *.mpeg
 .env
 azure.yaml
-*venv/*
 outputs/*
 ai_settings.yaml
 last_run_ai_settings.yaml
@@ -129,10 +129,9 @@ celerybeat.pid
 .env
 .venv
 env/
-venv/
+venv*/
 ENV/
 env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
