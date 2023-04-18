@@ -10,6 +10,9 @@ from autogpt.speech import say_text
 from autogpt.spinner import Spinner
 from autogpt.utils import clean_input
 
+# 谷歌翻译
+from googletrans import Translator
+translator = Translator()
 
 class Agent:
     """Agent class for interacting with Auto-GPT.
@@ -138,7 +141,7 @@ class Agent:
                         user_input = "EXIT"
                         break
                     else:
-                        user_input = console_input
+                        user_input = translator.translate(console_input, dest='en').text
                         command_name = "human_feedback"
                         break
 
