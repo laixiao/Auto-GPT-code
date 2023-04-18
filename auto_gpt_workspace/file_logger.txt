@@ -3946,3 +3946,11 @@ write: t6/result.py
 write: t6/result.txt
 write: ~/T6/answer.txt
 write: T6/result.txt
+write: T5/wechat_public_accounts.txt
+write: T6/wechat_public_account_analysis_websites.txt
+write: T7/psychology_topics.txt
+write: T7/article.txt
+append: T7/article.txt
+write: T7/ideas.txt
+write: T7/psychology_of_emotions.txt
+write: T7/suggestions.txt
