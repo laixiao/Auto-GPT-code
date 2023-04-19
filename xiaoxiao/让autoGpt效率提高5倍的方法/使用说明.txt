@@ -1,0 +1,4 @@
+步骤：
+1、在instructions.txt里面描述你需要实现的目标步骤，步骤清晰有效越好
+2、将advice.txt和instructions.txt这2个文件放在auto_gpt_workspace文件夹下即可
+3、将“目标.txt”里面的5个目标直接输入给ai的5个goal即可
